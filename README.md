@@ -1,5 +1,19 @@
 # Twitter Sentiment Analysis Project
 
+## Business Problem
+
+Manually analyzing thousands of tweets is time-consuming, resource-intensive, and impractical at scale. Without automation, companies risk missing critical customer feedback, delaying responses to product issues, and failing to capitalize on positive sentiment. This project addresses the need for an automated sentiment classification system that can efficiently process large volumes of social media data.
+
+Such a system enables organizations to:
+
+* Monitor customer satisfaction in real time.
+
+* Detect product issues early before they escalate.
+
+* Measure public reaction to product launches and updates.
+
+* Improve customer engagement strategies through data-driven insights.
+
 ## Overview
 This project performs sentiment analysis on Twitter data to classify tweets into:
 
@@ -65,7 +79,7 @@ After preprocessing, the cleaned text needed to be converted into a numerical fo
 
 - **TF-IDF Vectorization** – Converts text into numerical features based on term frequency-inverse document frequency. This method gives higher weight to words that appear frequently in a specific tweet but rarely across the entire dataset, helping to identify distinctive sentiment-bearing terms.
 
-- **Optional n-grams** – In addition to single words (unigrams), the model can also capture pairs of words (bigrams) or triple words (trigrams). For example, "not good" is a bigram that carries different sentiment than "good" alone.
+- **n-grams** – In addition to single words (unigrams), the model can also capture pairs of words (bigrams) or triple words (trigrams). For example, "not good" is a bigram that carries different sentiment than "good" alone.
 
 - **Sparse matrix representation** – Since TF-IDF produces a matrix with many zero values (most tweets do not contain most words), sparse matrix formats are used to store data efficiently and reduce memory usage.
 
@@ -116,31 +130,79 @@ One of the key challenges in this project was class imbalance:
 If accuracy alone were used as the metric, a model could simply predict "neutral" for every tweet and achieve high accuracy while failing completely on negative sentiment detection. To address this:
 
 - **Macro F1 score** was used instead of accuracy for model evaluation and tuning.
-- Class imbalance remains a limitation, and future work should explore:
-  - **SMOTE (Synthetic Minority Oversampling Technique)** – Generating synthetic examples of minority classes.
+- Class imbalance remains a limitation, and was handled using:
   - **Class weighting** – Giving higher penalty for misclassifying minority classes.
-  - **Resampling** – Undersampling the majority class or oversampling minority classes.
 
 ## Model Interpretability
 
-Understanding *why* a model makes a particular prediction is crucial for trust and debugging. This project used **LIME** (Local Interpretable Model-Agnostic Explanations) to:
+This project used **global feature importance** and **LIME** to explain model predictions.
 
-- **Explain individual predictions** – For any given tweet, LIME shows which words pushed the model toward positive, negative, or neutral classification.
-- **Identify influential keywords** – Words like *love*, *great*, *crash*, and *broken* consistently influenced predictions.
-- **Confirm model validity** – The model relied on intuitive and meaningful sentiment patterns rather than spurious correlations.
+### Global Feature Importance
 
-## Key Insights
+The top 15 features (text + brand) with their weights. Negative weights push toward **Negative** sentiment, positive weights push toward **Positive** sentiment.
 
-The analysis revealed several important findings about sentiment expression on Twitter:
+![alt text](image-4.png)
 
-| Insight | Description |
-|---------|-------------|
-| **Neutral tweets dominate** | Most users mention brands or products while asking questions, sharing news, or making neutral observations without strong emotion. |
-| **Negative sentiment is hardest to classify** | Sarcasm, informal language, incomplete sentences, and limited context make negative tweets more challenging for models. |
-| **Positive sentiment is easiest to classify** | Positive tweets frequently contain clear praise words like *love*, *great*, *excellent*, and *amazing*. |
-| **Brand and product names are strong predictors** | Mentions of specific products (e.g., *iPad*, *iPhone*) provide context that helps distinguish sentiment direction. |
-| **Apple and Google dominate conversations** | These two brands generate the highest volume of discussion and sentiment expression. |
-| **Technical issues drive negative sentiment** | Words like *crash*, *broken*, *issue*, and *problem* are strongly associated with negative tweets, indicating that product reliability is a major concern. |
+### Key Findings
+
+- **Technical issues** (`battery`, `alarm`, `iphone`) drive negative sentiment.
+- **Sarcasm is a challenge** – `cool` (positive word, negative weight) and `hate`/`fail` (negative words, positive weights) reveal ironic usage.
+- **Links and mentions** often accompany negative tweets (e.g., complaints or support requests).
+
+### LIME Analysis
+
+LIME explains individual predictions by showing which words influenced each decision. This confirmed the model learned intuitive sentiment patterns, though sarcasm remains a limitation for future work.
+
+## Example Prediction Breakdown
+
+The following example shows a tweet classified by the model with prediction probabilities and word-level influences.
+
+### Tweet Text
+
+*"So far the longest line at #sxsw has been at the Apple store."*
+
+### Prediction Probabilities
+
+| Sentiment Class | Probability |
+|----------------|-------------|
+| Negative Emotion | 0.05 |
+| No Emotion Toward Brand or Product | **0.69** |
+| Positive Emotion | 0.27 |
+
+**Final Prediction:** `No Emotion Toward Brand or Product`
+
+### Top Influential Words
+
+| Word | Influence Weight |
+|------|------------------|
+| longest | +0.19 |
+| far | +0.17 |
+| Apple | +0.14 |
+| line | +0.10 |
+| sxsw | +0.07 |
+| store | +0.03 |
+| So | +0.00 |
+| the | +0.00 |
+| has | +0.00 |
+| at | +0.00 |
+
+### Interpretation
+
+- The model correctly classified this tweet as **neutral (no emotion toward brand or product)** with 69% confidence.
+- The words `longest`, `far`, `Apple`, and `line` were the strongest predictors.
+- Despite mentioning `Apple`, the tweet simply observes a long line at the store without expressing positive or negative emotion.
+- Low probability for negative (5%) and positive (27%) confirms the neutral classification.
+This table format fits cleanly into your README. Let me know if you want to add more examples or adjust the styling.
+
+### Concluion
+Twitter is a valuable real-time source of consumer opinions on tech brands. Most tweets are neutral, but the sentiment that appears is highly informative.
+
+Positive sentiment ties to favorable experiences, with words like love, great, and excellent reflecting organic brand advocacy.
+
+Negative sentiment is driven by technical issues (crash, broken, problem). Negative tweets are harder to classify due to sarcasm, abbreviations, and limited context.
+
+### Recommendation
+Organizations should track negative keywords like crash and broken in real time to detect issues early, prioritize technical improvements since negative sentiment is largely tied to software problems, leverage positive tweets to guide marketing, and enhance customer support by responding quickly on Twitter. Future work should address class imbalance using resampling or class weighting, incorporate advanced NLP models like BERT to better capture sarcasm and context, expand features to include emojis and hashtags, and conduct periodic sentiment monitoring to track shifts after product launches or updates.
 
 ## Technologies Used
 
