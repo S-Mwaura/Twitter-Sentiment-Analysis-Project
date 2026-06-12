@@ -21,14 +21,6 @@ This project performs sentiment analysis on Twitter data to classify tweets into
 - **Negative Emotion** – Tweets expressing frustration, disappointment, or criticism toward a brand or product.
 - **No Emotion Toward Brand or Product** – Neutral tweets that mention brands or products without expressing a clear positive or negative sentiment
 
-| Sentiment                          | Count     | Percentage (%) |
-| ---------------------------------- | --------- | -------------- |
-| No emotion toward brand or product | 5,389     | 59.3%          |
-| Positive emotion                   | 2,978     | 32.8%          |
-| Negative emotion                   | 570       | 6.3%           |
-| I can't tell                       | 156       | 1.7%           |
-| **Total**                          | **9,093** | **100.0%**     |
-
 ![alt text](image.png)
 
 Multiple machine learning models were trained and evaluated to identify the best-performing approach for real-world social media sentiment classification. The project demonstrates how natural language processing (NLP) and machine learning can be applied to extract actionable insights from unstructured social media data.
