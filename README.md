@@ -20,8 +20,9 @@ This project performs sentiment analysis on Twitter data to classify tweets into
 - **Positive Emotion** – Tweets expressing satisfaction, excitement, or favorable opinions about a brand or product.
 - **Negative Emotion** – Tweets expressing frustration, disappointment, or criticism toward a brand or product.
 - **No Emotion Toward Brand or Product** – Neutral tweets that mention brands or products without expressing a clear positive or negative sentiment
+- **i Cann't tell** - Tweets preferring not to give any sentiment.
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 Multiple machine learning models were trained and evaluated to identify the best-performing approach for real-world social media sentiment classification. The project demonstrates how natural language processing (NLP) and machine learning can be applied to extract actionable insights from unstructured social media data.
 
@@ -92,7 +93,7 @@ The models were evaluated using two primary metrics:
 - **Accuracy** – The proportion of total correct predictions. Useful but can be misleading when classes are imbalanced.
 - **Macro F1 Score** – The average of F1 scores across all three classes, giving equal weight to positive, negative, and neutral categories. This is a more reliable metric for imbalanced datasets.
 
-![alt text](image-1.png)
+![alt text](image-4.png)
 
 | Model | Accuracy | Macro F1 Score |
 |-------|----------|----------------|
@@ -134,7 +135,7 @@ This project used **global feature importance** and **LIME** to explain model pr
 The top 10 features (text + brand) with their weights. Negative weights push toward **Negative** sentiment, positive weights push toward **Positive** sentiment.
 
 ![alt text](image-5.png)
-
+![alt text](image-6.png)
 ### Key Findings
 
 * Positive Emotion Class: Strongest associations are "giving" (1.8), "wow" (1.5), "great" (1.3), "awesome" (1.1), "cool" (1.0), and "fun" (0.8). Negative words like "hate" (-2.6) and "fail" (-1.8) are correctly pushed away.
@@ -186,6 +187,7 @@ The following example shows a tweet classified by the model with prediction prob
 - Low probability for negative (5%) and positive (27%) confirms the neutral classification.
 
 ### Concluion
+
 Twitter is a valuable real-time source of consumer opinions on tech brands. Most tweets are neutral, but the sentiment that appears is highly informative.
 
 Positive sentiment ties to favorable experiences, with words like love, great, and excellent reflecting organic brand advocacy.
@@ -193,6 +195,7 @@ Positive sentiment ties to favorable experiences, with words like love, great, a
 Negative sentiment is driven by technical issues (crash, broken, problem). Negative tweets are harder to classify due to sarcasm, abbreviations, and limited context.
 
 ### Recommendation
+
 Organizations should track negative keywords like crash and broken in real time to detect issues early, prioritize technical improvements since negative sentiment is largely tied to software problems, leverage positive tweets to guide marketing, and enhance customer support by responding quickly on Twitter. Future work should address class imbalance using resampling or class weighting, incorporate advanced NLP models like BERT to better capture sarcasm and context, expand features to include emojis and hashtags, and conduct periodic sentiment monitoring to track shifts after product launches or updates.
 
 
