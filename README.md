@@ -1,8 +1,8 @@
 # Twitter Sentiment Analysis Project
 
-## Author
+# Author
 
-**Stephen Mwaura**
+# Stephen Mwaura
 
 ## Business Problem
 
