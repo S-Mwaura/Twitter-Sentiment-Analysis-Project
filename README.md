@@ -189,11 +189,7 @@ The following example shows a tweet classified by the model with prediction prob
 
 ### Concluion
 
-Twitter is a valuable real-time source of consumer opinions on tech brands. Most tweets are neutral, but the sentiment that appears is highly informative.
-
-Positive sentiment ties to favorable experiences, with words like love, great, and excellent reflecting organic brand advocacy.
-
-Negative sentiment is driven by technical issues (crash, broken, problem). Negative tweets are harder to classify due to sarcasm, abbreviations, and limited context.
+As a real-time source of consumer opinions on tech brands, Twitter is highly valuable. Although the majority of tweets are neutral, any detectable sentiment provides strong signals. Favorable experiences surface through words like fun, smart, and great, reflecting genuine brand advocacy, while negative sentiment is largely triggered by technical problems, including alarm, fail, and headaches.
 
 ### Recommendation
 
