@@ -155,6 +155,8 @@ The following example shows a tweet classified by the model with prediction prob
 
 *"So far the longest line at #sxsw has been at the Apple store."*
 
+
+
 ### Prediction Probabilities
 
 | Sentiment Class | Probability |
@@ -196,6 +198,8 @@ Negative sentiment is driven by technical issues (crash, broken, problem). Negat
 
 ### Recommendation
 Organizations should track negative keywords like crash and broken in real time to detect issues early, prioritize technical improvements since negative sentiment is largely tied to software problems, leverage positive tweets to guide marketing, and enhance customer support by responding quickly on Twitter. Future work should address class imbalance using resampling or class weighting, incorporate advanced NLP models like BERT to better capture sarcasm and context, expand features to include emojis and hashtags, and conduct periodic sentiment monitoring to track shifts after product launches or updates.
+
+
 
 ## Author
 
