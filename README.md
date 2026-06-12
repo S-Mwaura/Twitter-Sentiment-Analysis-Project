@@ -139,7 +139,7 @@ This project used **global feature importance** and **LIME** to explain model pr
 The top 10 features (text + brand) with their weights. Negative weights push toward **Negative** sentiment, positive weights push toward **Positive** sentiment.
 
 ![alt text](image-5.png)
-![alt text](image-6.png)
+
 ### Key Findings
 
 * Positive Emotion Class: Strongest associations are "giving" (1.8), "wow" (1.5), "great" (1.3), "awesome" (1.1), "cool" (1.0), and "fun" (0.8). Negative words like "hate" (-2.6) and "fail" (-1.8) are correctly pushed away.
@@ -148,11 +148,11 @@ The top 10 features (text + brand) with their weights. Negative weights push tow
 
 * Overall: The model cleanly separates positive (happy words), neutral (informational content), and negative (complaint words) sentiment with intuitive boundaries.
 
-### LIME Analysis
+## LIME Analysis
 
 LIME explains individual predictions by showing which words influenced each decision. This confirmed the model learned intuitive sentiment patterns, though sarcasm remains a limitation for future work.
 
-## Example Prediction Breakdown
+### Example Prediction Breakdown
 
 The following example shows a tweet classified by the model with prediction probabilities and word-level influences.
 
