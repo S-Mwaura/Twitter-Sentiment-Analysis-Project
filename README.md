@@ -189,7 +189,8 @@ The following example shows a tweet classified by the model with prediction prob
 
 ### Concluion
 
-As a real-time source of consumer opinions on tech brands, Twitter is highly valuable. Although the majority of tweets are neutral, any detectable sentiment provides strong signals. Favorable experiences surface through words like fun, smart, and great, reflecting genuine brand advocacy, while negative sentiment is largely triggered by technical problems, including alarm, fail, and headaches.
+As a real-time source of consumer opinions on tech brands, Twitter is highly valuable. 
+Although the majority of tweets are neutral, any detectable sentiment provides strong signals. Favorable experiences surface through words like fun, smart, and great, reflecting genuine brand advocacy, while negative sentiment is largely triggered by technical problems, including alarm, fail, and headaches.
 
 ### Recommendation
 
