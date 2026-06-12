@@ -136,6 +136,7 @@ This project used **global feature importance** and **LIME** to explain model pr
 The top 10 features (text + brand) with their weights. Negative weights push toward **Negative** sentiment, positive weights push toward **Positive** sentiment.
 
 ![alt text](image-5.png)
+![alt text](image-6.png)
 
 ### Key Findings
 
@@ -156,7 +157,6 @@ The following example shows a tweet classified by the model with prediction prob
 ### Tweet Text
 
 *"So far the longest line at #sxsw has been at the Apple store."*
-
 
 
 ### Prediction Probabilities
