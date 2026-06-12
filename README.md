@@ -1,7 +1,8 @@
 # Twitter Sentiment Analysis Project
 
-## Business Problem
+## Author : Stephen Mwaura
 
+## Business Problem
 Manually analyzing thousands of tweets is time-consuming, resource-intensive, and impractical at scale. Without automation, companies risk missing critical customer feedback, delaying responses to product issues, and failing to capitalize on positive sentiment. This project addresses the need for an automated sentiment classification system that can efficiently process large volumes of social media data.
 
 Such a system enables organizations to:
@@ -27,7 +28,6 @@ This project performs sentiment analysis on Twitter data to classify tweets into
 Multiple machine learning models were trained and evaluated to identify the best-performing approach for real-world social media sentiment classification. The project demonstrates how natural language processing (NLP) and machine learning can be applied to extract actionable insights from unstructured social media data.
 
 ## Objective
-
 The primary objectives of this project are:
 
 - To analyze public sentiment on Twitter regarding technology brands and products.
@@ -38,7 +38,6 @@ The primary objectives of this project are:
 - To provide actionable insights for organizations to monitor brand perception and improve products.
 
 ## Dataset
-
 The dataset used in this project consists of Twitter posts related to technology brands and products. Each record includes:
 
 - **Tweet text content** – The original raw text of the tweet.
@@ -50,7 +49,6 @@ The dataset used in this project consists of Twitter posts related to technology
 The dataset reflects real-world social media conversations, including informal language, abbreviations, emojis, and mentions of competing brands.
 
 ## Data Preprocessing
-
 Raw tweet text is noisy and contains many elements that do not contribute to sentiment classification. The following preprocessing steps were applied to clean and standardize the text:
 
 | Step | Description |
@@ -67,7 +65,6 @@ These preprocessing steps significantly reduced noise in the dataset and improve
 ![alt text](image-3.png)
 
 ## Feature Engineering
-
 After preprocessing, the cleaned text needed to be converted into a numerical format that machine learning algorithms can process.
 
 - **TF-IDF Vectorization** – Converts text into numerical features based on term frequency-inverse document frequency. This method gives higher weight to words that appear frequently in a specific tweet but rarely across the entire dataset, helping to identify distinctive sentiment-bearing terms.
@@ -87,7 +84,6 @@ Three different classifiers were trained and evaluated on the same dataset to co
 | **LinearSVC** | A support vector machine classifier with a linear kernel. It finds the optimal hyperplane separating classes and is known for good performance on high-dimensional text data. |
 
 ## Model Performance
-
 The models were evaluated using two primary metrics:
 
 - **Accuracy** – The proportion of total correct predictions. Useful but can be misleading when classes are imbalanced.
@@ -103,7 +99,6 @@ The models were evaluated using two primary metrics:
 
 
 ## Best Model
-
 **LinearSVC** was selected as the final model for this project because it achieved:
 
 - **High overall accuracy (91%)** – Matching the best-performing model.
@@ -113,7 +108,6 @@ The models were evaluated using two primary metrics:
 Hyperparameter tuning was performed using GridSearchCV with macro F1 as the optimization metric, further improving the model's robustness and fairness.
 
 ## Class Imbalance Handling
-
 One of the key challenges in this project was class imbalance:
 
 - The dataset is dominated by **neutral** tweets (No Emotion Toward Brand or Product).
@@ -127,17 +121,14 @@ If accuracy alone were used as the metric, a model could simply predict "neutral
   - **Class weighting** – Giving higher penalty for misclassifying minority classes.
 
 ## Model Interpretability
-
 This project used **global feature importance** and **LIME** to explain model predictions.
 
 ### Global Feature Importance
-
 The top 10 features (text + brand) with their weights. Negative weights push toward **Negative** sentiment, positive weights push toward **Positive** sentiment.
 
 ![alt text](image-5.png)
 
 ### Key Findings
-
 * Positive Emotion Class: Strongest associations are "giving" (1.8), "wow" (1.5), "great" (1.3), "awesome" (1.1), "cool" (1.0), and "fun" (0.8). Negative words like "hate" (-2.6) and "fail" (-1.8) are correctly pushed away.
 
 * Neutral Class: Characterized by "target_brand_other" (2.8), "link" (0.8), and "congress" (0.8). Emotional words like "partying" (-1.2) and specific brands like "Apple" (-0.9) push tweets away from neutrality.
@@ -145,7 +136,6 @@ The top 10 features (text + brand) with their weights. Negative weights push tow
 * Overall: The model cleanly separates positive (happy words), neutral (informational content), and negative (complaint words) sentiment with intuitive boundaries.
 
 ## LIME Analysis
-
 LIME explains individual predictions by showing which words influenced each decision. This confirmed the model learned intuitive sentiment patterns, though sarcasm remains a limitation for future work.
 
 ### Example Prediction Breakdown
@@ -187,7 +177,6 @@ The following example shows a tweet classified by the model with prediction prob
 - Low probability for negative (5%) and positive (27%) confirms the neutral classification.
 
 ### Concluion
-
 Twitter is a valuable real-time source of consumer opinions on tech brands. Most tweets are neutral, but the sentiment that appears is highly informative.
 
 Positive sentiment ties to favorable experiences, with words like love, great, and excellent reflecting organic brand advocacy.
@@ -195,7 +184,4 @@ Positive sentiment ties to favorable experiences, with words like love, great, a
 Negative sentiment is driven by technical issues (crash, broken, problem). Negative tweets are harder to classify due to sarcasm, abbreviations, and limited context.
 
 ### Recommendation
-
 Organizations should track negative keywords like crash and broken in real time to detect issues early, prioritize technical improvements since negative sentiment is largely tied to software problems, leverage positive tweets to guide marketing, and enhance customer support by responding quickly on Twitter. Future work should address class imbalance using resampling or class weighting, incorporate advanced NLP models like BERT to better capture sarcasm and context, expand features to include emojis and hashtags, and conduct periodic sentiment monitoring to track shifts after product launches or updates.
-
-## Author : Stephen Mwaura
