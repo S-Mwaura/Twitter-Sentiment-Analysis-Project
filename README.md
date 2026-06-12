@@ -139,15 +139,19 @@ This project used **global feature importance** and **LIME** to explain model pr
 
 ### Global Feature Importance
 
-The top 15 features (text + brand) with their weights. Negative weights push toward **Negative** sentiment, positive weights push toward **Positive** sentiment.
+The top 10 features (text + brand) with their weights. Negative weights push toward **Negative** sentiment, positive weights push toward **Positive** sentiment.
 
-![alt text](image-4.png)
+![alt text](image-5.png)
+
+![alt text](image-6.png)
 
 ### Key Findings
 
-- **Technical issues** (`battery`, `alarm`, `iphone`) drive negative sentiment.
-- **Sarcasm is a challenge** – `cool` (positive word, negative weight) and `hate`/`fail` (negative words, positive weights) reveal ironic usage.
-- **Links and mentions** often accompany negative tweets (e.g., complaints or support requests).
+* Positive Emotion Class: Strongest associations are "giving" (1.8), "wow" (1.5), "great" (1.3), "awesome" (1.1), "cool" (1.0), and "fun" (0.8). Negative words like "hate" (-2.6) and "fail" (-1.8) are correctly pushed away.
+
+* Neutral Class: Characterized by "target_brand_other" (2.8), "link" (0.8), and "congress" (0.8). Emotional words like "partying" (-1.2) and specific brands like "Apple" (-0.9) push tweets away from neutrality.
+
+* Overall: The model cleanly separates positive (happy words), neutral (informational content), and negative (complaint words) sentiment with intuitive boundaries.
 
 ### LIME Analysis
 
@@ -192,7 +196,6 @@ The following example shows a tweet classified by the model with prediction prob
 - The words `longest`, `far`, `Apple`, and `line` were the strongest predictors.
 - Despite mentioning `Apple`, the tweet simply observes a long line at the store without expressing positive or negative emotion.
 - Low probability for negative (5%) and positive (27%) confirms the neutral classification.
-This table format fits cleanly into your README. Let me know if you want to add more examples or adjust the styling.
 
 ### Concluion
 Twitter is a valuable real-time source of consumer opinions on tech brands. Most tweets are neutral, but the sentiment that appears is highly informative.
@@ -204,7 +207,7 @@ Negative sentiment is driven by technical issues (crash, broken, problem). Negat
 ### Recommendation
 Organizations should track negative keywords like crash and broken in real time to detect issues early, prioritize technical improvements since negative sentiment is largely tied to software problems, leverage positive tweets to guide marketing, and enhance customer support by responding quickly on Twitter. Future work should address class imbalance using resampling or class weighting, incorporate advanced NLP models like BERT to better capture sarcasm and context, expand features to include emojis and hashtags, and conduct periodic sentiment monitoring to track shifts after product launches or updates.
 
-## Technologies Used
+## Libraries used in the project
 
 | Category | Tools |
 |----------|-------|
