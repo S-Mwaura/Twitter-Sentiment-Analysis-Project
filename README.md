@@ -143,8 +143,6 @@ The top 10 features (text + brand) with their weights. Negative weights push tow
 
 ![alt text](image-5.png)
 
-![alt text](image-6.png)
-
 ### Key Findings
 
 * Positive Emotion Class: Strongest associations are "giving" (1.8), "wow" (1.5), "great" (1.3), "awesome" (1.1), "cool" (1.0), and "fun" (0.8). Negative words like "hate" (-2.6) and "fail" (-1.8) are correctly pushed away.
