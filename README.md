@@ -169,18 +169,14 @@ The following example shows a tweet classified by the model with prediction prob
 
 ### Top Influential Words
 
-| Word | Influence Weight |
-|------|------------------|
-| longest | +0.19 |
-| far | +0.17 |
-| Apple | +0.14 |
-| line | +0.10 |
-| sxsw | +0.07 |
-| store | +0.03 |
-| So | +0.00 |
-| the | +0.00 |
-| has | +0.00 |
-| at | +0.00 |
+| Word      | Influence Weight |
+|-----------|------------------|
+| longest   | +0.19            |
+| far       | +0.17            |
+| Apple     | +0.14            |
+| line      | +0.10            |
+| sxsw      | +0.07            |
+| store     | +0.03            |
 
 ### Interpretation
 
